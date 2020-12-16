@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ftps-service
+spec:
+  selector:
+    app: ftps
+  type: LoadBalancer
+  ports:
+      - port: 21
+        name: ftp-control-stream
+      - port: 20
+        name: ftp-data-active-stream
+      - port: 10000
+        name: ftp-data-passive-stream
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ftps-deployment
+  labels:
+    app: ftps
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ftps
+  template:
+    metadata:
+      labels:
+        app: ftps
+    spec:
+      containers:
+      - name: ftps-pod
+        image: ftps_img
+        imagePullPolicy: Never
+        ports:
+            - containerPort: 20
+            - containerPort: 21
+            - containerPort: 10000
