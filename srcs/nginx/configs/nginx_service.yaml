@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    ftps_service.yaml                                  :+:      :+:    :+:    #
+#    nginx_service.yaml                                 :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/12/17 14:39:10 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/17 15:35:50 by nelisabe         ###   ########.fr        #
+#    Created: 2020/12/17 14:39:03 by nelisabe          #+#    #+#              #
+#    Updated: 2020/12/17 18:40:35 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,43 +15,43 @@ kind: Service
 metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: shared #enable selective IP sharing (enable single ip)
-  name: ftps-service
+  name: nginx-service
 spec:
   selector:
-    app: ftps
+    app: nginx
   type: LoadBalancer
   ports:
-      - port: 21
-        name: ftp-control-stream #input only
+      - port: 22
+        name: ssh
         protocol: TCP
-      - port: 20
-        name: ftp-data-active-stream
+      - port: 80
+        name: http
         protocol: TCP
-      - port: 10000
-        name: ftp-data-passive-stream
+      - port: 443
+        name: https
         protocol: TCP
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ftps-deployment
+  name: nginx-deployment
   labels:
-    app: ftps
+    app: nginx
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ftps
+      app: nginx
   template:
     metadata:
       labels:
-        app: ftps
+        app: nginx
     spec:
       containers:
-      - name: ftps-pod
-        image: ftps_image
+      - name: nginx-pod
+        image: nginx_image
         imagePullPolicy: Never
         ports:
-            - containerPort: 20
-            - containerPort: 21
-            - containerPort: 10000
+            - containerPort: 22
+            - containerPort: 80
+            - containerPort: 443

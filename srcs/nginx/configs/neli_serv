@@ -1,0 +1,25 @@
+server
+{
+	server_name neli_serv;
+
+	listen 80;
+	listen [::]:80;
+
+	return 301 https://$host$request_uri;
+}
+
+server
+{
+	server_name neli_serv;
+
+	listen 443 ssl;
+	listen [::]:443 ssl;
+
+	ssl_certificate /etc/nginx/ssl/nginx_serv_key.crt;
+	ssl_certificate_key /etc/nginx/ssl/nginx_serv_key.key;
+
+	location /
+	{
+		try_files $uri $uri/ =404;
+	}
+}

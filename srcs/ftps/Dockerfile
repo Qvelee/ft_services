@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/14 15:12:24 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/16 18:12:12 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/17 19:35:27 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ RUN		apk update ; \
 COPY	./configs/vsftpd.conf /etc/vsftpd/
 
 RUN		mkdir -p /home/ftp_root ; \
-		echo -e "root\nroot" | adduser ftp_root -h /home/ftp_root;\
+		echo -e "root\nroot" | adduser ftp_root ;\
 		chown ftp_root:ftp_root /home/ftp_root
 
 RUN		mkdir -p /etc/vsftpd/ssl ;\
@@ -33,9 +33,9 @@ RUN		mkdir -p /etc/vsftpd/ssl ;\
 			-keyout /etc/vsftpd/ssl/ftp_serv_key.key \
 			-subj "/C=RU/ST=Moscow/L=Moscow/O=school21/OU=Student/"
 
-EXPOSE	20 21 10000
-
-WORKDIR	/etc/start
+WORKDIR	/etc/start/
 COPY	./start_ftp.sh ./
+
+EXPOSE	20 21 10000
 
 ENTRYPOINT ["sh", "start_ftp.sh"]
