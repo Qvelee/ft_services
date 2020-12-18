@@ -1,24 +1,15 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    metallb.yaml                                       :+:      :+:    :+:    #
+#    apply_configs.sh                                   :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/12/18 16:11:34 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/18 16:11:35 by nelisabe         ###   ########.fr        #
+#    Created: 2020/12/18 16:39:12 by nelisabe          #+#    #+#              #
+#    Updated: 2020/12/18 16:40:07 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  namespace: metallb-system
-  name: config
-data:
-  config: |
-    address-pools:
-    - name: default
-      protocol: layer2
-      addresses:
-      - 192.168.99.100-192.168.99.100
+kubectl apply -f ./configs/
+kubectl apply -f ./ftps/configs/
+kubectl apply -f ./nginx/configs/

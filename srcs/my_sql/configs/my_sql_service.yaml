@@ -1,24 +1,22 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    metallb.yaml                                       :+:      :+:    :+:    #
+#    my_sql_service.yaml                                :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/12/18 16:11:34 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/18 16:11:35 by nelisabe         ###   ########.fr        #
+#    Created: 2020/12/18 17:22:16 by nelisabe          #+#    #+#              #
+#    Updated: 2020/12/18 17:58:36 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 apiVersion: v1
-kind: ConfigMap
+kind: Service
 metadata:
-  namespace: metallb-system
-  name: config
-data:
-  config: |
-    address-pools:
-    - name: default
-      protocol: layer2
-      addresses:
-      - 192.168.99.100-192.168.99.100
+  name: mysql-service
+spec:
+  selector:
+    app: mysql
+  ports:
+      - port: 3306 # mysql defalt port
+        name: mysql
