@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/18 17:18:11 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/18 17:18:20 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/21 00:00:12 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,4 +20,4 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 100Mi
+      storage: 400Mi

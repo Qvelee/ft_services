@@ -1,0 +1,26 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    PersistentVolumeMysql.yaml                         :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/12/18 16:11:29 by nelisabe          #+#    #+#              #
+#    Updated: 2020/12/20 23:59:55 by nelisabe         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mysql-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 300Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/services/mysql/"

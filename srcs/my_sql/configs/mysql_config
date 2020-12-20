@@ -1,0 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    mysql_config                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/12/20 18:49:55 by nelisabe          #+#    #+#              #
+#    Updated: 2020/12/20 21:42:30 by nelisabe         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CREATE DATABASE wordpress_database;
+GRANT ALL PRIVILEGES ON wordpress_database.* TO 'wordpress_user'@'%' IDENTIFIED BY 'wordpress_password'; # '%' means that user can connect to MySql dbase from any host (any IP adress)
+FLUSH PRIVILEGES;

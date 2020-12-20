@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/14 15:12:24 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/17 19:35:27 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/20 23:14:48 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,9 @@ RUN		mkdir -p /etc/vsftpd/ssl ;\
 			-keyout /etc/vsftpd/ssl/ftp_serv_key.key \
 			-subj "/C=RU/ST=Moscow/L=Moscow/O=school21/OU=Student/"
 
-WORKDIR	/etc/start/
-COPY	./start_ftp.sh ./
+WORKDIR	/etc/setup/
+COPY	./setup_ftp.sh ./
 
 EXPOSE	20 21 10000
 
-ENTRYPOINT ["sh", "start_ftp.sh"]
+ENTRYPOINT ["sh", "setup_ftp.sh"]

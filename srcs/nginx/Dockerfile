@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/16 18:07:33 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/18 15:01:32 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/20 23:16:34 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,9 @@ RUN		mkdir -p /etc/nginx/ssl/ ;\
 			-subj "/C=RU/ST=Moscow/L=Moscow/O=school21/OU=Student/"
 
 COPY	./configs/neli_serv /etc/nginx/conf.d/default.conf
-WORKDIR	/etc/start/
-RUN		mkdir -p /etc/start/logs/
-COPY	./start_nginx.sh ./
+WORKDIR	/etc/setup/
+RUN		mkdir -p /etc/setup/logs/
+COPY	./setup_nginx.sh ./
 COPY	./configs/supervisord.conf ./
 
 RUN		mkdir -p /run/nginx/
@@ -41,4 +41,4 @@ RUN		echo -e "test\ntest" | adduser test
 
 EXPOSE	22 80 443
 
-ENTRYPOINT ["sh", "start_nginx.sh"]
+ENTRYPOINT ["sh", "setup_nginx.sh"]

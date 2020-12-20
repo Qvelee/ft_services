@@ -1,0 +1,52 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    mysql_service.yaml                                 :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/12/18 17:22:16 by nelisabe          #+#    #+#              #
+#    Updated: 2020/12/20 22:26:52 by nelisabe         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+spec:
+  selector:
+    app: mysql
+  ports:
+      - port: 3306 # mysql defalt port
+        name: mysql
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  labels:
+    app: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      volumes:
+      - name: mysql-volume
+        persistentVolumeClaim:
+          claimName: mysql-claim
+      containers:
+      - name: mysql-pod
+        image: mysql_image
+        imagePullPolicy: Never
+        volumeMounts:
+          - mountPath: "/var/lib/mysql/"
+            name: mysql-volume
+        ports:
+            - containerPort: 3306
