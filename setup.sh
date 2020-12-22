@@ -6,11 +6,11 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/18 16:33:40 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/22 18:00:00 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/22 20:12:55 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-minikube start --vm-driver=virtualbox
+minikube start --vm-driver=virtualbox --memory=4000m
 minikube addons enable metallb
 
 eval $(minikube docker-env)

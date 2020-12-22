@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/22 17:53:16 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/22 17:55:39 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/22 20:30:20 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,7 @@ spec:
   type: LoadBalancer
   ports:
       - port: 5050
-        name: wordpress-port #input only
-        protocol: TCP
+        name: wordpress-port
 ---
 apiVersion: apps/v1
 kind: Deployment
