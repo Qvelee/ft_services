@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/14 15:12:24 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/20 23:14:48 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/23 18:39:40 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,10 +19,12 @@ RUN		apk update ; \
 
 COPY	./configs/vsftpd.conf /etc/vsftpd/
 
+#add user for ftp to login
 RUN		mkdir -p /home/ftp_root ; \
 		echo -e "root\nroot" | adduser ftp_root ;\
 		chown ftp_root:ftp_root /home/ftp_root
 
+#creating secret key for ftps (secured) connection
 RUN		mkdir -p /etc/vsftpd/ssl ;\
 		openssl req -newkey rsa:2048 \
 			-x509 \

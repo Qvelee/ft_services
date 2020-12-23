@@ -6,14 +6,15 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/18 16:33:40 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/22 20:12:55 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/23 18:55:13 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-minikube start --vm-driver=virtualbox --memory=4000m
-minikube addons enable metallb
+minikube start --vm-driver=virtualbox --memory=4000m	# start claster with one node
+minikube addons enable metallb							# enable srvice-manager 
 
-eval $(minikube docker-env)
+eval $(minikube docker-env)								# add docker env vars (docker will built images for virtual machine)
+
 docker build -t ftps_image ./srcs/ftps/
 docker build -t nginx_image ./srcs/nginx/
 docker build -t mysql_image ./srcs/mysql/

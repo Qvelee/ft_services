@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/16 18:07:33 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/20 23:16:34 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/23 18:51:40 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,10 @@ RUN		mkdir -p /etc/setup/logs/
 COPY	./setup_nginx.sh ./
 COPY	./configs/supervisord.conf ./
 
+# alpine linux don't create /run directory, so we need to create it
 RUN		mkdir -p /run/nginx/
 
+# creating user to login ftom ssh
 RUN		echo -e "test\ntest" | adduser test
 
 EXPOSE	22 80 443
