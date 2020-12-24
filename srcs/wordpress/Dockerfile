@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/20 23:08:26 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/22 17:40:23 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/24 13:57:58 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ FROM	alpine:latest
 RUN		apk update ; \
 		apk upgrade ; \
 		apk add supervisor ; \
-		apk add openssl ; \
 		apk add nginx ; \
 		apk add php7 php7-fpm php7-opcache \
 			php7-common php7-iconv \

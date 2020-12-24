@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/18 16:33:40 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/23 18:55:13 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/24 16:48:28 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,11 @@ docker build -t ftps_image ./srcs/ftps/
 docker build -t nginx_image ./srcs/nginx/
 docker build -t mysql_image ./srcs/mysql/
 docker build -t wordpress_image ./srcs/wordpress/
+docker build -t pma_image ./srcs/phpMyAdmin/
 
 kubectl apply -f ./srcs/configs/
 kubectl apply -f ./srcs/ftps/configs/
 kubectl apply -f ./srcs/nginx/configs/
 kubectl apply -f ./srcs/mysql/configs/
 kubectl apply -f ./srcs/wordpress/configs/
+kubectl apply -f ./srcs/phpMyAdmin/configs/

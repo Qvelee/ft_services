@@ -1,0 +1,48 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    pma_service.yaml                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/12/22 17:53:16 by nelisabe          #+#    #+#              #
+#    Updated: 2020/12/24 13:54:17 by nelisabe         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared #enable selective IP sharing (enable single ip)
+  name: pma-service
+spec:
+  selector:
+    app: pma
+  type: LoadBalancer
+  ports:
+      - port: 5000
+        name: pma-port
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pma-deployment
+  labels:
+    app: pma
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pma
+  template:
+    metadata:
+      labels:
+        app: pma
+    spec:
+      containers:
+      - name: pma-pod
+        image: pma_image
+        imagePullPolicy: Never
+        ports:
+            - containerPort: 5000

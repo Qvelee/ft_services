@@ -1,0 +1,31 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    pma_nginx                                          :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/12/20 23:33:15 by nelisabe          #+#    #+#              #
+#    Updated: 2020/12/24 14:51:02 by nelisabe         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+server
+{
+        listen 5000 ;
+    	listen [::]:5000;
+        server_name pma_nginx;
+
+        root /etc/setup/phpMyAdmin/;
+
+        index index.php;
+        location /
+		{
+            try_files $uri $uri/ /index.php?$args;
+        }
+        location ~ \.php$
+		{
+        	include fastcgi.conf;
+        	fastcgi_pass 127.0.0.1:9000;
+     	}
+}
