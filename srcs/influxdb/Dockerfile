@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/26 12:16:35 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/26 18:47:30 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/29 16:04:40 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,4 +20,4 @@ COPY	./configs/influxdb.conf /etc/
 
 EXPOSE	8086
 
-ENTRYPOINT ["/usr/sbin/influxd"]
+ENTRYPOINT ["/usr/sbin/influxd", "-config", "/etc/influxdb.conf"]
