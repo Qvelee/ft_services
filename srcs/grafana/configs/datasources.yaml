@@ -1,0 +1,25 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    datasources.yaml                                   :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/12/29 19:07:58 by nelisabe          #+#    #+#              #
+#    Updated: 2020/12/29 19:33:26 by nelisabe         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+apiVersion: 1
+datasources:
+- name: influxdb
+  orgId: 1
+  type: influxdb
+  url: http://influxdb-service:8086
+  database: influxdb
+  isDefault: true
+  version: 1
+  editable: false
+  basicAuth: true
+  basicAuthUser: admin
+  basicAuthPassword: admin

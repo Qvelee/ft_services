@@ -1,0 +1,22 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    dashboards.yaml                                    :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/12/29 19:04:28 by nelisabe          #+#    #+#              #
+#    Updated: 2020/12/29 19:06:14 by nelisabe         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+apiVersion: 1
+providers:
+- name: 'dashboards'
+  orgId: 1
+  folder: ''
+  type: file
+  disableDeletion: true
+  updateIntervalSeconds: 10
+  options:
+    path: /etc/grafana/dashboards # path to dashboards .json
