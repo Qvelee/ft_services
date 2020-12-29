@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/29 11:40:56 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/29 19:15:53 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/29 20:00:59 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,6 @@ COPY	./configs/grafana-7.3.6.tar.gz ./
 RUN		tar -xzvf grafana-7.3.6.tar.gz
 
 RUN		mkdir -p ./grafana/dashboards/
-RUN		rm ./grafana/conf/provisioning/dashboards/sample.yaml
-RUN		rm ./grafana/conf/provisioning/datasources/sample.yaml
 COPY	./configs/dashboards.yaml ./grafana/conf/provisioning/dashboards/
 COPY	./configs/datasources.yaml ./grafana/conf/provisioning/datasources/
 COPY	./configs/*.json ./grafana/dashboards/

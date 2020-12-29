@@ -6,10 +6,11 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/18 16:33:40 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/29 17:13:32 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/29 22:04:28 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+mkdir -p ./srcs/logs/
 rm -rf ./srcs/logs/*
 minikube start --vm-driver=virtualbox --log_dir ./srcs/logs --memory=4000m	# start claster with one node
 minikube addons enable metallb												# enable srvice-manager 

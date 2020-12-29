@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/17 14:39:10 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/29 19:38:33 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/29 20:05:00 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,17 +47,10 @@ spec:
       labels:
         app: ftps
     spec:
-      volumes:
-      - name: ftps-volume
-        persistentVolumeClaim:
-          claimName: ftps-claim
       containers:
       - name: ftps-pod
         image: ftps_image
         imagePullPolicy: Never
-        volumeMounts:
-          - mountPath: "/home/"
-            name: ftps-volume
         ports:
             - containerPort: 20
             - containerPort: 21
