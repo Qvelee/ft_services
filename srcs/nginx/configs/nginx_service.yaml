@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/17 14:39:03 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/17 18:40:35 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/30 14:10:25 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx-pod
+      - name: nginx
         image: nginx_image
         imagePullPolicy: Never
         ports:
