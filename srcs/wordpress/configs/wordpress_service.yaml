@@ -6,7 +6,7 @@
 #    By: nelisabe <nelisabe@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/22 17:53:16 by nelisabe          #+#    #+#              #
-#    Updated: 2020/12/22 20:30:20 by nelisabe         ###   ########.fr        #
+#    Updated: 2020/12/30 14:11:40 by nelisabe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ spec:
         app: wordpress
     spec:
       containers:
-      - name: wordpress-pod
+      - name: wordpress
         image: wordpress_image
         imagePullPolicy: Never
         ports:
