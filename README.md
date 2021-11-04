@@ -14,6 +14,7 @@ The result of deployment is cluster with 8 services running in their own contain
 8) influxdb - service with database used by telegrad and grafana.
 
 **Build**
+
 To build and run project just run `setup.sh`.
 _It is necessary to install minikube, VirtualBox and Docker to build project._
 
