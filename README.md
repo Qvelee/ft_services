@@ -16,6 +16,7 @@ The result of deployment is cluster with 8 services running in their own contain
 **Build**
 
 To build and run project just run `setup.sh`.
+
 _It is necessary to install minikube, VirtualBox and Docker to build project._
 
 **Usage**
