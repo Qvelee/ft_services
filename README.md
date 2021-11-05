@@ -3,6 +3,7 @@
 Deployment of multiple services with Kubernetes.
 
 **Descpription**
+
 The result of deployment is cluster with 8 services running in their own containers:
 1) Wordpress - website main page service;
 2) MySql - service with wordpress database;
