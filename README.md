@@ -11,7 +11,7 @@ The result of deployment is cluster with 8 services running in their own contain
 4) ftps - file server;
 5) nginx - redirect and proxy server for wordpress and phpMyAdmin;
 6) grafana - service for services state visualization;
-7) telegraf - service for collecting metrics about databases etc.
+7) telegraf - service for collecting metrics about databases, etc.
 8) influxdb - service with database used by telegraf and grafana.
 
 **Build**
